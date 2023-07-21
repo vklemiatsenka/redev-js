@@ -7,7 +7,7 @@
 */
 
 function list (str) {
-    str = str.split(' ').sort((a, b) => a - b);
-    return `${str.shift()} ${str.pop()}`
+    let newStr = str.split(' ').sort((a, b) => a - b);
+    return `${newStr.shift()} ${newStr.pop()}`;
 }
 console.log(list("-16 12 -100 5 100 12"));
