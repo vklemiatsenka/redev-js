@@ -8,7 +8,7 @@ invert([1,-2,4,-5]) == [-1,2,-4,5]
 */
 
 function invert(arr) {
-    return arr.map(item => -item);
+    return arr.map(item => item === 0? 0 : -item);
 }
 
-console.log(invert([11, -3, -1, 10, -110,]));
+console.log(invert([11, -3, -1, 10, -110, 0]));
