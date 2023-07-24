@@ -10,14 +10,15 @@
 */
 
 function printer_error(str) {
-    let colors = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',];
+    const colors = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',];
     let numerator = 0;
-    let denominator = str.length;
-    for (let i = 0; i <= str.length - 1; i++) {
-        if (colors.indexOf(str[i]) === -1) {
+    const denominator = str.length;
+    const newArr = str.split('');
+    newArr.forEach(item => {
+        if (colors.indexOf(item) === -1) {
             numerator++;
         }
-    }
+    });
     return `${numerator}/${denominator}`;
 }
 
