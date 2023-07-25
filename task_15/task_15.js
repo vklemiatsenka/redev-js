@@ -11,15 +11,10 @@ function sortedStr(str) {
         return '';
     } else {
         const arr = str.split(' ');
-        let result = [];
-        arr.forEach(item => {
-            for (let i = 0; i <= item.length - 1; i++) {
-                if (isFinite(item[i])) {
-                    result[item[i] - 1] = item;
-                }
-            }
-        });
-        return result.join(' ');
+        function getFind(strI) {
+            return strI.split('').find(item => isFinite(item));
+        }
+        return arr.sort((a, b) => getFind(a) - getFind(b)).join(' ');
     }
 }
 
