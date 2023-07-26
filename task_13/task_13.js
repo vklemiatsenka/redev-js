@@ -5,17 +5,15 @@
 */
 
 function prevNum(num) {
-    let total = '';
     if (num <= 0) {
         return `Число должно быть больше 0`;
     }
-    for (let i = num; i !== 0; i--) {
-        total += i;
-        if (i > 1) {
-            total += ', '
-        }
-    }
-    return total;
+    return Array(num).fill(num)
+        .reduce((accum, item, index) => {
+        accum.push(item - index);
+        return accum;
+    }, [])
+        .join(', ');
 }
 
-console.log(prevNum(18));
+console.log(prevNum(12));
