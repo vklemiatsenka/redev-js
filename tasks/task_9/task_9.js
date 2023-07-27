@@ -6,11 +6,10 @@
 
 function simple(str) {
     const arr = str.split(' ');
-    let total = arr.reduce((acc, current) => {
+    return  arr.reduce((acc, current) => {
         acc = Math.min(acc, current.length);
         return acc;
     }, arr[0].length);
-    return total;
 }
 
 console.log(simple('Варкалось, хливкие шорьки пырялись по нове и хрюкотали зелюки как мюмзики в мове'));
