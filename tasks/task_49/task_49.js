@@ -12,18 +12,14 @@ findMissingLetter(['a','b','d']) // 'c'
 */
 
 function findMissingLetter(arr) {
-    if (arr < 2) {
+    if (arr.length < 2) {
         throw new Error(`Not enough array length`);
     }
-    const newArr = arr.join('').toLowerCase().split('').sort();
-    const alphabet = 'abcdefjhigklmnopqrstuvwxyz';
-    return alphabet.split('').reduce((acc, curr) => {
-        if (newArr.includes(curr)) {
-            return acc;
-        }
-        acc.push(curr);
-        return acc;
-    }, []);
+    const conv = arr.map(item => item.charCodeAt(0));
+    const res = conv.find((item, index) => {
+        return item !== conv[0] + index;
+    });
+    return res !== undefined ? [String.fromCharCode(res - 1)] : [];
 }
 
-console.log(findMissingLetter(['a', 'b', 'd', 'f', 'Q', 'R', 'u']));
+console.log(findMissingLetter(['x', 'z']));
