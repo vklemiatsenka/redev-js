@@ -30,10 +30,10 @@ console.log(differenceDate(date1, date2));
 // Напиши функцию, которая будет принимать на вход дату в формате "ММ/ДД/ГГГГ" или "ГГГГ/ММ/ДД" и возвращать ее представление в формате "ДД.ММ.ГГГГ".
 
 function convertDate(date) {
-    return date.split('/').join('.');
+    return `${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`;
 }
 
-console.log(convertDate('22/11/1990'));
+console.log(convertDate(new Date()));
 
 // task 4
 // Напиши функцию, которая будет принимать на вход дату и время и возвращать строку, содержащую информацию о том, сколько времени прошло с момента заданной даты до текущего момента. Например, "2 дня назад", "3 часа назад", "10 минут назад" и т.д.
@@ -46,7 +46,9 @@ function itWas(date) {
     const day = hour * 24;
     const month = day * 30;
     const year = day * 365;
-    if (diff > minute && diff < hour) {
+    if (diff < minute) {
+        return 'Wrong date'
+    } else if (diff > minute && diff < hour) {
         return `${Math.round(diff / minute)} minutes ago`;
     } else if (diff > hour && diff < day) {
         return `${Math.round(diff / hour)} hours ago`;
@@ -59,6 +61,6 @@ function itWas(date) {
     }
 }
 
-const date = new Date(2023, 7, 10, 14, 0, 0);
+const date = new Date(2021, 8, 10, 14, 0, 0);
 
 console.log(itWas(date));
