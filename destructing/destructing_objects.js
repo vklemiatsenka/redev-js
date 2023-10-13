@@ -49,7 +49,7 @@
         city: 'Shire',
         country: 'Middle Earth',
     }
-    const {name: userName, age: userAge, city: userCity, userCountry = 'Hobbiton'} = myObject;
+    const {name: userName, age: userAge, city: userCity, country: {userCountry = 'Hobbiton'}} = myObject;
 
     console.log(userName, userAge, userCity, userCountry);
 }

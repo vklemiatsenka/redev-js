@@ -51,13 +51,9 @@ console.log(concatObjects(obj1, obj2));
 // task 5
 // Напиши функцию, которая принимает массив и возвращает новый массив с уникальными значениями из первого массива.
 
-function uniqArray(arr) {
-    return {...arr, age: 33};
-}
+const arr = [1, 2, 3, 78, 'hello', 'hello', Infinity, -Infinity, 2, 1, 78, 100];
 
-const obj = {
-    name: 'Volha',
-    age: 32,
+const uniqValues = arr => {
+    return [...arr.filter((item, index) => arr.indexOf(item) === index)];
 }
-
-console.log(uniqArray(obj));
+console.log(uniqValues(arr));
